@@ -10,6 +10,7 @@ Vagrant.configure("2") do |config|
       vb.memory = 1024
     	vb.cpus = 2
     end
+    ubuntu.vm.provision :shell, :inline => "echo '192.168.27.101 debian' >> /etc/hosts"
     ubuntu.vm.provision :shell, :inline => "apt-get update && apt-get install -y nginx"
     ubuntu.vm.provision :shell, :inline => "ln -s /vagrant /var/www/html/demo"
   end
@@ -22,6 +23,7 @@ Vagrant.configure("2") do |config|
       vb.memory = 1024
       vb.cpus = 1
     end
+    debian.vm.provision :shell, :inline => "echo '192.168.27.100 ubuntu' >> /etc/hosts"
     debian.vm.provision :shell, :inline => "apt-get update && apt-get install -y nginx"
     debian.vm.provision :shell, :inline => "ln -s /vagrant /var/www/html/demo"
   end
