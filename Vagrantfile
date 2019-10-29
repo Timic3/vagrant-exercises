@@ -4,6 +4,7 @@
 Vagrant.configure("2") do |config|
   config.vm.define "ubuntu" do |ubuntu|
     ubuntu.vm.box = "ubuntu/bionic64"
+    ubuntu.vm.hostname = "ubuntu"
     ubuntu.vm.network :private_network, ip: "192.168.27.100"
     ubuntu.vm.provider :virtualbox do |vb|
       vb.memory = 1024
@@ -15,6 +16,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "debian" do |debian|
     debian.vm.box = "debian/jessie64"
+    debian.vm.hostname = "debian"
     debian.vm.network :private_network, ip: "192.168.27.101"
     debian.vm.provider :virtualbox do |vb|
       vb.memory = 1024
